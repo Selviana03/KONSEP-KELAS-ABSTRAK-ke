@@ -3,35 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas Pemrograman Berorientasi Objek - Serlin Selviana Giay</title>
+    <title>Tugas Sesi 4 - Abstract Class & Polimorfisme</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; }
-        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-        .info-box { background: #e8f4fd; padding: 15px; border-left: 5px solid #3498db; margin-bottom: 20px; }
-        .highlight { font-weight: bold; color: #2980b9; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F0FFF0; /* Warna Hijau Mint lembut agar beda dari Sesi 3 */
+            color: #2E8B57;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid #8FBC8F;
+        }
+        h1 {
+            text-align: center;
+            color: #2E8B57;
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+        .identitas {
+            background-color: #F5FFFA;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 1px solid #8FBC8F;
+        }
+        .identitas p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .bold-text {
+            font-weight: bold;
+            color: #2E8B57;
+        }
+        .materi-box {
+            border-left: 5px solid #2E8B57;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            color: #333333;
+        }
+        .materi-box h2 {
+            font-size: 18px;
+            margin-top: 0;
+            color: #2E8B57;
+        }
+        .materi-box p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        pre {
+            background-color: #F8F9FA;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #E9ECEF;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 13.5px;
+            color: #212529;
+        }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>Tugas Sesi 4: Pemrograman Berorientasi Objek</h1>
-        <div class="info-box">
-            <p><strong>NAMA:</strong> SERLIN SELVIANA GIAY</p>
-            <p><strong>NIM:</strong> 251410030</p>
-            <p><strong>KELAS:</strong> SI2A</p>
-        </div>
+<div class="container">
+    <h1>Rangkuman Teori &amp; Praktik<br>Sesi 4: Abstract Class &amp; Polimorfisme</h1>
+    <hr style="border: 1px solid #8FBC8F; margin-bottom: 20px;">
+
+    <div class="identitas">
+        <p><span class="bold-text">Nama Lengkap:</span> Serlin Selviana Giay</p>
+        <p><span class="bold-text">NIM:</span> 251410030</p>
+        <p><span class="bold-text">Mata Kuliah:</span> Pemrograman Berorientasi Objek (Sesi 4)</p>
+        <p><span class="bold-text">Kelas:</span> SI2A</p>
     </div>
 
-    <div class="card">
-        <h2>Konsep Kelas Abstrak (Abstract Class)</h2>
-        <p>Kelas abstrak adalah kelas yang tidak dapat diinstansiasi secara langsung. Dalam tugas ini, kelas <code>Pekerja</code> didefinisikan sebagai kelas abstrak untuk menjadi kerangka bagi kelas turunannya seperti <code>Programmer</code>, <code>Dokter</code>, dan <code>Guru</code>.</p>
-        <p>Dengan menerapkan <span class="highlight">Abstract Method</span>, setiap kelas turunan wajib mengimplementasikan perilaku <code>bekerja()</code> sesuai dengan perannya masing-masing.</p>
+    <div class="materi-box">
+        <h2>1. Abstract Class & Abstract Method</h2>
+        <p>Abstract Class adalah kelas yang tidak bisa dibuat objeknya secara langsung dan berfungsi sebagai kontrak. <b>Abstract Method</b> adalah metode tanpa isi yang wajib diimplementasikan oleh kelas turunan.</p>
+        <pre>abstract class Pekerja {
+  void bekerja(); // Abstract method
+}</pre>
     </div>
 
-    <div class="card">
-        <h2>Live Demo (DartPad)</h2>
-       <iframe src="https://dartpad.dev/?id=5c0e154dd50af4a9ac856908061291bc/embed-dart.html?id=https://gist.github.com/5c0e154dd50af4a9ac856908061291bc
-       style="width:100%; height:500px;"></iframe>
+    <div class="materi-box">
+        <h2>2. Implementasi Pewarisan (Inheritance)</h2>
+        <p>Kelas turunan seperti <code>Programmer</code>, <code>Dokter</code>, dan <code>Guru</code> mewarisi kelas <code>Pekerja</code> dan memberikan isi spesifik pada metode <code>bekerja()</code> menggunakan <code>@override</code>.</p>
+    </div>
+
+    <div class="materi-box">
+        <h2>3. Polimorfisme (Polymorphism)</h2>
+        <p>Kemampuan objek untuk memiliki banyak bentuk. Kita bisa menyimpan objek Programmer dan Dokter ke dalam sebuah <code>List&lt;Pekerja&gt;</code> dan menjalankan metode yang sama namun dengan hasil berbeda.</p>
+        <pre>List&lt;Pekerja&gt; daftar = [Programmer('Serlin'), Dokter('Siti')];</pre>
+    </div>
+
+    <div class="materi-box">
+        <h2>4. Interface (Multiple Inheritance)</h2>
+        <p>Di Dart, kita menggunakan kata kunci <code>implements</code> untuk meniru multiple inheritance. Sebuah kelas <code>Tablet</code> bisa memiliki kemampuan dari kelas Komputer, Kamera, dan Telepon sekaligus.</p>
+    </div>
+
+    <div class="materi-box">
+        <h2>5. Static Methods (MathUtils)</h2>
+        <p>Metode <b>Static</b> memungkinkan kita mengakses fungsi di dalam kelas tanpa perlu membuat objek (instansiasi). Digunakan dalam kelas <code>MathUtils</code> untuk fungsi matematika seperti faktorial, cek prima, dan rata-rata.</p>
+        <pre>class MathUtils {
+  static int factorial(int n) => ... ;
+}
+// Cara panggil: MathUtils.factorial(5);</pre>
+    </div>
+
+    <div class="materi-box" style="margin-top: 40px;">
+        <h2>Interactive Code Playground (DartPad)</h2>
+        <p>Klik tombol <b>Run</b> di bawah ini untuk melihat eksekusi program lengkap Tugas Sesi 4 (Abstract Class & MathUtils):</p>
+        
+        <iframe 
+            src="https://dartpad.dev/?id=5c0e154dd50af4a9ac856908061291bc/embed-inline.html?id=https:5c0e154dd50af4a9ac856908061291bc&theme=light" 
+            style="width: 100%; height: 550px; border: 2px solid #8FBC8F; border-radius: 12px; margin-top: 15px;">
+        </iframe>
+    </div>
+
+</div>
+
 </body>
 </html>
